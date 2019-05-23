@@ -19,7 +19,11 @@ function love.load()
   sum = 0
   timer = Timer()
   circle = {radius = 24}
-  timer:tween(6, circle, {radius = 96}, "in-out-cubic")
+  timer:after(2, function()
+      timer:tween(6, circle, {radius = 96}, "in-out-cubic", function()
+          timer:tween(6, circle, {radius = 24}, "in-out-cubic")
+        end)
+      end)
 end
 
 

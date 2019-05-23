@@ -10,6 +10,10 @@ function love.load()
   input:bind("mouse1", "test")
   input:bind("space", "test2")
   input:bind("/", "add")
+  input:bind("dpup", "up")
+  input:bind("dpdown", "down")
+  input:bind("dpright", "right")
+  input:bind("dpleft", "left")
   sum = 0
 end
 
@@ -19,6 +23,10 @@ function love.update(dt)
   if input:released("test") then print("released") end
   if input:down("test2", 0.5) then print("test event") end
   if input:down("add", 0.25) then sum = (sum + 1), print(sum) end
+  if input:pressed("up") then print("up") end
+  if input:pressed("down") then print("down") end
+  if input:pressed("right") then print("right") end
+  if input:pressed("left") then print("left") end
 end
 
 function love.draw()

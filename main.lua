@@ -18,10 +18,8 @@ function love.load()
   input:bind("l2", "trigger")
   sum = 0
   timer = Timer()
-  timer:after(1, function(f)
-      print(love.math.random())
-      timer:after(love.math.random(), f)
-    end)
+  circle = {radius = 24}
+  timer:tween(6, circle, {radius = 96}, "in-out-cubic")
 end
 
 
@@ -39,5 +37,5 @@ function love.update(dt)
 end
 
 function love.draw()
-  circletest:draw()
+  love.graphics.circle("fill", 400, 300, circle.radius)
 end

@@ -14,6 +14,7 @@ function love.load()
   input:bind("dpdown", "down")
   input:bind("dpright", "right")
   input:bind("dpleft", "left")
+  input:bind("l2", "trigger")
   sum = 0
 end
 
@@ -27,6 +28,7 @@ function love.update(dt)
   if input:pressed("down") then print("down") end
   if input:pressed("right") then print("right") end
   if input:pressed("left") then print("left") end
+  if input:pressed("trigger") then print("left trigger") end
 end
 
 function love.draw()

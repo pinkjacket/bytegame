@@ -1,6 +1,6 @@
 Object = require "assets/lib/classic/classic"
 Input = require "assets/lib/input/Input"
-Timer = require "assets/lib/hump/timer"
+Timer = require "assets/lib/enhancedtimer/EnhancedTimer"
 require "assets/obj/circle"
 require "assets/obj/hypercircle"
 assets = require("assets/lib/cargo/cargo").init("assets")

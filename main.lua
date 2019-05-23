@@ -18,7 +18,10 @@ function love.load()
   input:bind("l2", "trigger")
   sum = 0
   timer = Timer()
-  timer:every(1, function() print(love.math.random()) end, 5)
+  timer:after(1, function(f)
+      print(love.math.random())
+      timer:after(love.math.random(), f)
+    end)
 end
 
 

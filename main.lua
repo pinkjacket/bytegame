@@ -1,5 +1,6 @@
 Object = require "assets/lib/classic/classic"
 Input = require "assets/lib/input/Input"
+Timer = require "assets/lib/hump/timer"
 require "assets/obj/circle"
 require "assets/obj/hypercircle"
 assets = require("assets/lib/cargo/cargo").init("assets")
@@ -16,6 +17,8 @@ function love.load()
   input:bind("dpleft", "left")
   input:bind("l2", "trigger")
   sum = 0
+  timer = Timer()
+  timer:after(2, function() print(love.math.random()) end)
 end
 
 
@@ -29,6 +32,7 @@ function love.update(dt)
   if input:pressed("right") then print("right") end
   if input:pressed("left") then print("left") end
   if input:pressed("trigger") then print("left trigger") end
+  timer:update(dt)
 end
 
 function love.draw()

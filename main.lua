@@ -39,7 +39,7 @@ function love.update(dt)
   if input:pressed("right") then print("right") end
   if input:pressed("left") then print("left") end
   if input:pressed("trigger") then print("left trigger") end
-  if input:pressed("timer2") then timer:after(2, function() print(love.math.random()) end) end
+  if input:pressed("timer2") then timer:after("r_key_press", 2, function() print(love.math.random()) end) end
   timer:update(dt)
 end
 

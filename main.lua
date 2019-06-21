@@ -16,6 +16,7 @@ function love.load()
   input:bind("dpright", "right")
   input:bind("dpleft", "left")
   input:bind("l2", "trigger")
+  input:bind("r", "timer2")
   sum = 0
   timer = Timer()
   circle = {radius = 24}
@@ -24,8 +25,9 @@ function love.load()
           timer:tween(6, circle, {radius = 24}, "in-out-cubic")
         end)
       end)
+  local handle_1 = timer:after(2, function() print(love.math.random()) end)
+  timer:cancel(handle_1)
 end
-
 
 function love.update(dt)
   if input:pressed("test") then print("pressed") end
@@ -37,8 +39,11 @@ function love.update(dt)
   if input:pressed("right") then print("right") end
   if input:pressed("left") then print("left") end
   if input:pressed("trigger") then print("left trigger") end
+  if input:pressed("timer2") then timer:after(2, function() print(love.math.random()) end) end
   timer:update(dt)
 end
+
+
 
 function love.draw()
   love.graphics.circle("fill", 400, 300, circle.radius)
